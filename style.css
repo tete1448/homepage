@@ -8,23 +8,20 @@
   }
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
-  body { background:var(--black); color:var(--white); font-family:'Cormorant Garamond','Noto Serif JP',serif; overflow-x:hidden; cursor:none; }
-
-  .cursor { position:fixed; width:8px; height:8px; background:var(--silver); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
-  .cursor-ring { position:fixed; width:32px; height:32px; border:1px solid rgba(168,160,144,.5); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); }
+  body { background:var(--black); color:var(--white); font-family:'Cormorant Garamond','Noto Serif JP',serif; overflow-x:hidden; }
 
   /* NAV */
-  nav {
+  #mainNav {
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
     padding:20px 48px;
     background:linear-gradient(to bottom,rgba(8,8,8,.9) 0%,transparent 100%);
     transition:background .4s, padding .4s;
   }
-  nav.scrolled { background:rgba(8,8,8,.96); border-bottom:1px solid rgba(168,160,144,.12); padding:14px 48px; }
+  #mainNav.scrolled { background:rgba(8,8,8,.96); border-bottom:1px solid rgba(168,160,144,.12); padding:14px 48px; }
   .nav-logo { height:52px; opacity:.95; transition:opacity .3s; flex-shrink:0;  }
   .nav-logo:hover { opacity:1; }
-  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links { display:flex; flex-direction:row; align-items:center; gap:36px; list-style:none; }
   .nav-links a { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.22em; color:var(--silver); text-decoration:none; position:relative; transition:color .3s; }
   .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:var(--silver-light); transition:width .3s; }
   .nav-links a:hover { color:var(--white); }
@@ -118,6 +115,7 @@
   #message { padding:150px 0; background:linear-gradient(180deg,#080808 0%,#0a0908 100%); }
   .message-inner { max-width:1100px; margin:0 auto; padding:0 60px; display:grid; grid-template-columns:340px 1fr; gap:90px; align-items:start; }
   .portrait-frame { width:100%; aspect-ratio:3/4; background:linear-gradient(135deg,#1c1915 0%,#0d0b09 100%); border:1px solid rgba(168,160,144,.13); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  .portrait-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
   .portrait-frame::before { content:''; position:absolute; top:14px; right:14px; bottom:14px; left:14px; border:1px solid rgba(168,160,144,.06); }
   .portrait-initials { font-family:'Cinzel',serif; font-size:68px; color:rgba(168,160,144,.06); letter-spacing:.1em; }
   .portrait-plate { position:absolute; bottom:-1px; left:-1px; right:-1px; background:linear-gradient(to top,rgba(8,8,8,.97) 60%,transparent); padding:46px 26px 24px; text-align:center; }
@@ -142,10 +140,6 @@
   .ci-val a { color:inherit; text-decoration:none; transition:color .3s; }
   .ci-val a:hover { color:var(--white); }
   .ci-div { width:1px; height:14px; background:rgba(168,160,144,.3); }
-  .contact-btn { display:inline-block; padding:18px 56px; border:1px solid rgba(168,160,144,.35); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.42em; color:var(--silver-light); text-decoration:none; position:relative; overflow:hidden; transition:color .4s; }
-  .contact-btn::before { content:''; position:absolute; inset:0; background:rgba(168,160,144,.08); transform:translateX(-100%); transition:transform .4s ease; }
-  .contact-btn:hover { color:var(--white); }
-  .contact-btn:hover::before { transform:translateX(0); }
 
   /* FOOTER */
   footer { background:#040404; border-top:1px solid rgba(168,160,144,.09); padding:76px 60px 38px; z-index:2; position:relative; }
@@ -163,7 +157,7 @@
   .footer-bottom p { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.3em; color:var(--silver-dim); }
 
   @media(max-width:900px){
-    nav{padding:20px 24px;} nav.scrolled{padding:13px 24px;}
+    #mainNav{padding:20px 24px;} #mainNav.scrolled{padding:13px 24px;}
     .nav-links{gap:20px;}
     .about-grid,.message-inner{grid-template-columns:1fr;gap:56px;padding:0 28px;}
     .footer-inner{grid-template-columns:1fr;gap:36px;}
