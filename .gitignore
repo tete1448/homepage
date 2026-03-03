@@ -1,0 +1,8 @@
+# 変換スクリプト（本番には不要）
+convert.py
+
+# 元のHTMLファイル（index.htmlに変換済み）
+RENMA_CORP*.html
+
+# macOS
+.DS_Store
